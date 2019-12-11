@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 const Hospital = mongoose.model("Hospital");
 
 module.exports = {
-
   // List all hospitals
   async listAll(req, res) {
     const { page = 1 } = req.query; // using destructuring in the parameters

@@ -1,0 +1,64 @@
+#******************* API RETURNS *******************#
+
+########## GET /tts/{id} : RESPOSTA (STATUS 200) ##########
+
+{
+  "status": 200,
+  "sucesso": true,
+  "motivo": 0,
+  "mensagem": "dados retornados com sucesso",
+  "dados": {
+    "id": 203,
+    "numero_destino": "4832830151",
+    "data_criacao": "2016-03-31T21:43:54-03:00",
+    "data_inicio": "2016-03-31T21:44:02-03:00",
+    "tipo": "fixo",
+    "status": "atendida",
+    "duracao_segundos": 12,
+    "duracao": "00:00:12",
+    "duracao_cobrada_segundos": 60,
+    "duracao_cobrada": "00:01:00",
+    "duracao_falada_segundos": 8,
+    "duracao_falada": "00:00:08",
+    "preco": 0,
+    "mensagem": "Oi, esta é uma leitura de TTS",
+    "velocidade": 0,
+    "resposta_usuario": false,
+    "resposta": ""
+  }
+}
+
+
+########## POST /tts ##########
+
+request = {
+  "numero_destino": "83977770000",
+  "mensagem": "Esta é uma mensagem de exemplo.",
+  "velocidade": 0,
+  "resposta_usuario": true,
+  "tipo_voz": "br-Vitoria",
+  "bina": "83986303123",
+  "gravar_audio": true,
+  "detecta_caixa": true
+}
+
+RESPOSTA (STATUS 200)
+
+{
+  "status": 200,
+  "sucesso": true,
+  "motivo": 0,
+  "mensagem": "tts criado com sucesso",
+  "dados": {
+    "id": 4921
+  }
+}
+
+ERRO (STATUS 405)
+
+{
+  "status": 999,
+  "sucesso": false,
+  "motivo": 30,
+  "mensagem": "mensagem de erro"
+}
