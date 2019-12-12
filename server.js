@@ -38,6 +38,6 @@ requireDir("./src/models");
 app.use("/api", require("./src/routes/routes"));
 
 const port = 3001;
-app.listen(port, () => {
+app.listen(process.env.PORT || port, () => {
   console.log(`Server running on port ${port}`);
 });
