@@ -43,7 +43,7 @@ const self = (module.exports = {
   async filterByCity(req, res) {
     const { page = 1, city } = req.query; // using destructuring in the parameters
     const doctorsByCity = await Doctor.paginate(
-      { city: city },
+      { city: { $regex: ".*" + city + ".*" } },
       { page, limit: 10 }
     );
     return res.json(doctorsByCity);
@@ -52,7 +52,7 @@ const self = (module.exports = {
   async filterBySpecialization(req, res) {
     const { page = 1, specialization } = req.query; // using destructuring in the parameters
     const doctorsBySpecialization = await Doctor.paginate(
-      { specialization: specialization },
+      { specialization: { $regex: ".*" + specialization + ".*" } },
       { page, limit: 10 }
     );
     return res.json(doctorsBySpecialization);
@@ -63,8 +63,8 @@ const self = (module.exports = {
     const { city, specialization } = req.query;
     const filteredDoctors = await Doctor.paginate(
       {
-        city: city,
-        specialization: specialization
+        city: { $regex: ".*" + city + ".*" },
+        specialization: { $regex: ".*" + specialization + ".*" }
       },
       { page, limit: 10 }
     );

@@ -1,3 +1,5 @@
+******* LINK PARA DOCUMENTAÇÃO DAS ROTAS: bit.ly/docway-api ***** 
+
 #******************* API RETURNS *******************#
 
 ########## GET /tts/{id} : RESPOSTA (STATUS 200) ##########
