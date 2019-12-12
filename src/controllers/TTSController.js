@@ -49,11 +49,11 @@ module.exports = {
         console.log(
           `Sucesso ao pesquisar informações do TTS de id ${req.params.id}!`
         );
-        res.json(data);
+        res.status(200).json(data);
       })
       .catch(err => {
         console.log(`Error: ${err}`);
-        res.json(err);
+        res.status(400).json(err);
       });
   }
 };

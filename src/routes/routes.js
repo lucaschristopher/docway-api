@@ -9,13 +9,16 @@ const TTSController = require("./../controllers/TTSController");
 
 // Doctors
 routes.get("/doctors", DoctorController.listAll);
+routes.get("/doctors/filter", DoctorController.filter);
 routes.get("/doctors/:id", DoctorController.show);
+routes.get("doctors/:crm", DoctorController.getByCrm);
 routes.post("/doctors", DoctorController.store);
 routes.put("/doctors/:id", DoctorController.update);
 routes.delete("/doctors/:id", DoctorController.delete);
 
 // Hospitals
 routes.get("/hospitals", HospitalController.listAll);
+routes.get("/hospitals/filter", HospitalController.filter);
 routes.get("/hospitals/:id", HospitalController.show);
 routes.post("/hospitals", HospitalController.store);
 routes.put("/hospitals/:id", HospitalController.update);
