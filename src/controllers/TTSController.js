@@ -6,13 +6,13 @@ const client = new totalvoice(process.env.API_KEY);
 const Doctor = mongoose.model("Doctor");
 
 module.exports = {
-
   // Message TTS sending
   async call(req, res) {
     const doctor = await Doctor.findById(req.body._id);
+    const hospital = req.body.hospital;
 
     const { name, phone } = doctor;
-    const message = `${name}, você deseja trabalhar conosco?`;
+    const message = `${name}, estamos precisando de você no ${hospital}. Você deseja trabalhar conosco?`;
 
     const options = {
       velocidade: 0,
