@@ -42,7 +42,7 @@ const self = (module.exports = {
 
   async filterByCity(req, res) {
     const { page = 1, city } = req.query; // using destructuring in the parameters
-    const hospitalsByCity = await Doctor.paginate(
+    const hospitalsByCity = await Hospital.paginate(
       { city: { $regex: ".*" + city + ".*" } },
       { page, limit: 10 }
     );

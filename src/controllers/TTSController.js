@@ -1,9 +1,7 @@
-require("dotenv/config");
-
 const mongoose = require("mongoose");
 const totalvoice = require("totalvoice-node");
 
-const client = new totalvoice(process.env.API_KEY);
+const client = new totalvoice("69467e94ebfd79f724a547882eeae91d");
 
 const Doctor = mongoose.model("Doctor");
 

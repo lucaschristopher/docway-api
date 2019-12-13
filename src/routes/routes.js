@@ -7,6 +7,10 @@ const DoctorController = require("./../controllers/DoctorController");
 const HospitalController = require("./../controllers/HospitalController");
 const TTSController = require("./../controllers/TTSController");
 
+routes.get("/", (req, res) => {
+  res.end("Hello, world!");
+})
+
 // Doctors
 routes.get("/doctors", DoctorController.listAll);
 routes.get("/doctors/filter", DoctorController.filter);

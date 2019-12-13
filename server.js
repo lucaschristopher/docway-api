@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const requireDir = require("require-dir");
+const db = require("./config/db");
 
 // Initializing the App
 const app = express();
@@ -13,7 +14,7 @@ app.use(express.json());
 app.use(cors());
 
 // Initializing the docway-api DB
-mongoose.connect("mongodb://localhost:27017/totalvoice-api", {
+mongoose.connect(db.mongoURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
@@ -37,7 +38,7 @@ requireDir("./src/models");
 // Every time we receive a request, we will forward it to our file "./src/routes".
 app.use("/api", require("./src/routes/routes"));
 
-const port = 3001;
-app.listen(process.env.PORT || port, () => {
+const port = process.env.PORT || 8089;
+app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
