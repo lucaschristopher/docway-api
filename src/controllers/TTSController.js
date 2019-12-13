@@ -12,7 +12,7 @@ module.exports = {
     const hospital = req.body.hospital;
 
     const { name, phone } = doctor;
-    const message = `${name}, estamos precisando de você no ${hospital}. Você deseja trabalhar conosco?`;
+    const message = `${name}, estamos precisando de você no ${hospital}. Você deseja trabalhar conosco? Se sim, digite 1; caso contrário, digite 2.`;
 
     const options = {
       velocidade: 0,
